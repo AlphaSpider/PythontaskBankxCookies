@@ -25,7 +25,7 @@ urlpatterns = [
     path('create', views.createacc),
     path('balance', views.balance),
     path('deposit', views.deposit),
-    # path('withdraw', views.withdraw),
+    path('withdraw', views.withdraw),
     path('logout', views.user_logout)
 
 ]

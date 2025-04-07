@@ -71,6 +71,25 @@ def deposit(request):
         
         return render(request, "deposit.html")
     
+def withdraw(request):
+    if 'a' in request.session:
+        name=request.session['a']
+        acc_obj=Account.objects.get(uname=name)
+        b_bal=float(acc_obj.bal)
+        if request.method=="POST":
+            wd_amt=float(request.POST.get("amt"))
+            if wd_amt <= b_bal:
+                wd_amt=wd_amt-b_bal
+                acc_obj.bal=wd_amt
+                acc_obj.save()
+            else:
+                msg="Insufficient balance!!!"
+                return HttpResponse(msg)
+            return redirect('/')
+    return render(request, "withdrawal.html")
+
+
+
 def user_logout(request):
 
     del request.session['a']

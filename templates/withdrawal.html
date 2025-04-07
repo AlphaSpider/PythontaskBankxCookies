@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw</title>
+</head>
+<body>
+    <h2>Withdraw</h1><br>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="amt">Enter the amount you want to withdraw: </label>
+            <input type="number" name="amt" id="amt"><br>
+            <button type="submit">Submit</button>
+        </form>
+</body>
+</html>
